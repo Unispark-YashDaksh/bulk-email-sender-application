@@ -20,7 +20,7 @@ const upload = multer({ storage });
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/health", (req, res)=>{
-    console.log("Backend run properly....**")
+    console.log("Backend run properl")
 })
 // ============================================
 // SEND EMAILS API

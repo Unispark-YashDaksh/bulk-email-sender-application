@@ -4,10 +4,8 @@ const nodemailer = require("nodemailer");
 const XLSX = require("xlsx");
 const path = require("path");
 const fs = require("fs");
-
 const app = express();
-const PORT = 3000;
-
+const PORT = process.env.PORT || 3000;
 // Upload folder setup
 const uploadDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
@@ -21,6 +19,9 @@ const upload = multer({ storage });
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/health", (req, res)=>{
+    console.log("Backend run properly....**")
+})
 // ============================================
 // SEND EMAILS API
 // ============================================
